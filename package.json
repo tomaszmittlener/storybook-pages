@@ -3,22 +3,39 @@
   "version": "1.0.0",
   "description": "test repo for storybook github pages deployment",
   "main": "index.js",
+  "repository": "git@github.com:tomaszmittlener/storybook-pages.git",
+  "author": "TM",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "storybook": "start-storybook -c storybook",
+    "build-storybook": "build-storybook -c storybook -o docs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/tomaszmittlener/storybook-pages.git"
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-transform-react-jsx-self": "^7.10.1",
+    "@babel/plugin-transform-react-jsx-source": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-flow": "^7.10.1",
+    "@babel/preset-react": "^7.10.1",
+    "@sambego/storybook-state": "^2.0.1",
+    "@storybook/addon-actions": "^5.3.13",
+    "@storybook/addon-links": "^5.3.13",
+    "@storybook/addon-storysource": "^5.3.13",
+    "@storybook/react": "^5.3.13",
+    "autoprefixer": "^9.8.0",
+    "css-loader": "^3.1.0",
+    "identity-obj-proxy": "^3.0.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "sass-loader": "^7.1.0",
+    "source-map-loader": "^0.2.4"
   },
-  "keywords": [
-    "storybook",
-    "github",
-    "pages"
-  ],
-  "author": "Tomasz Mittlener",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tomaszmittlener/storybook-pages/issues"
-  },
-  "homepage": "https://github.com/tomaszmittlener/storybook-pages#readme"
+  "dependencies": {
+    "babel-loader": "^8.1.0",
+    "postcss-discard-comments": "^4.0.2",
+    "style-loader": "^1.2.1"
+  }
 }
