@@ -1,0 +1,24 @@
+{
+  "name": "storybook-pages",
+  "version": "1.0.0",
+  "description": "test repo for storybook github pages deployment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tomaszmittlener/storybook-pages.git"
+  },
+  "keywords": [
+    "storybook",
+    "github",
+    "pages"
+  ],
+  "author": "Tomasz Mittlener",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomaszmittlener/storybook-pages/issues"
+  },
+  "homepage": "https://github.com/tomaszmittlener/storybook-pages#readme"
+}
