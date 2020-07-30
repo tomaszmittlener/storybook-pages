@@ -17,6 +17,7 @@ function TextLink({
       {...otherProps}
     >
       {children}
+      <span>Some new change</span>
     </Component>
   );
 }
