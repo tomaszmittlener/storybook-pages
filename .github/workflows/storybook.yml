@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: storybook-files
-          path: dist
+          path: docs
 
   deploy-storybook:
     name: Deploy Storybook
