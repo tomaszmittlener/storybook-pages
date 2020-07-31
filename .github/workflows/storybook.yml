@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: storybook-files
-          path: docs
+          path: dist
 
   deploy-storybook:
     name: Deploy Storybook
@@ -45,7 +45,7 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: storybook-files
-          path: docs
+          path: dist
       - name: Set branch environment variables
         if: github.event_name != 'pull_request'
         run: |
@@ -60,7 +60,7 @@ jobs:
         run: |
           mkdir -p storybook/${TARGET_DIR}
           rm -rf storybook/${TARGET_DIR}
-          mv docs storybook/${TARGET_DIR}
+          mv dist storybook/${TARGET_DIR}
           git add .
           git status
           git diff --staged --quiet && echo 'No changes to commit; exiting!' && exit 0
