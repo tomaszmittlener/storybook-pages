@@ -13,51 +13,19 @@ on:
       - synchronize
 
 jobs:
-  build-storybook:
-    name: Build Storybook
+  build:
     runs-on: ubuntu-latest
-    if: false == ( ( github.event_name == 'pull_request' && github.event.action == 'closed' ) || github.event.pull_request.head.repo.fork )
+    strategy:
+      matrix:
+        node-version: [13.11.0]
     steps:
       - uses: actions/checkout@v2
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v1
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
-      - name: Composer Install
-        uses: php-actions/composer@v1
-        with:
-          args: install
-      - name: Read .nvmrc
-        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
-        id: nvm
-      - name: Setup Node.js (.nvmrc)
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
-      - name: Cache Node - npm
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-cache-
-      - name: npm install
-        run: |
-          npm ci
-      - name: Build Storybook
-        run: |
-          npm run build:storybook
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v1
-        with:
-          name: storybook-files
-          path: docs
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm build:storybook
 
   deploy-storybook:
     name: Deploy Storybook
