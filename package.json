@@ -6,9 +6,9 @@
   "repository": "git@github.com:tomaszmittlener/storybook-pages.git",
   "author": "TM",
   "scripts": {
-    "storybook": "start-storybook -c storybook",
     "build-storybook": "build-storybook -c storybook -o docs",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "storybook-to-ghpages",
+    "build:storybook": "build-storybook -c .storybook -o docs"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
