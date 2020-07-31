@@ -13,7 +13,8 @@ on:
       - synchronize
 
 jobs:
-  build:
+  build-storybook:
+    name: Build Storybook
     runs-on: ubuntu-latest
     strategy:
       matrix:
